@@ -2,14 +2,14 @@
 
 {% block content %}
     <h1>{{title}}</h1>
-    <form>
+    <form action="/add/submit" method="post">
     	<div class="form group">
     		<label for="page-title">Page Title</label>
-    		<input type="text" class="form-control" id="page-title" placeholder="Title here">
+    		<input type="text" class="form-control" name="title" placeholder="Title here" />
     	</div>
     	<div class="form group">
     		<label for="page-content">Page Content</label>
-    		<textarea class="form-control" id="page-content" rows="10" placeholder="Content here"></textarea>
+    		<textarea class="form-control" name="body" rows="10" placeholder="Content here"></textarea>
     	</div>
     	<button type="submit" class="btn btn-default">Submit</button>
     </form>
