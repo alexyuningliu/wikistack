@@ -1,13 +1,21 @@
 var express = require('express');
 var router = express.Router();
+var models = require('../models/');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var models = require('../models/');
 	var docs = models.Page.find(function (err, docs) {
 		if (err) return console.error(err);
-		console.log(docs);
 		res.render('index', { title: 'BROWSE MY WIKISTACK', docs: docs });
+	});
+});
+
+/* GET a particular page */
+router.get('/wiki/:url_name', function(req, res) {
+	var doc = models.Page.findOne({ "url_name" : req.params.url_name}, function (err, doc) {
+		if (err) return console.log(err);
+		console.log("Hello" + doc);
+		res.render('show', { doc: doc });
 	});
 });
 

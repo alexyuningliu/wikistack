@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var models = require('../models/');
 
 /* GET the ADD form. */
 router.get('/', function(req, res) {
@@ -18,8 +19,6 @@ router.post('/submit', function(req, res) {
       return Math.random().toString(36).substring(2,7);
     }
   };
-
-  var models = require('../models/');
 
   // STUDENT ASSIGNMENT:
   // add definitions of the `title`, `body` and `url_name` variables here
