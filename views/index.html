@@ -3,6 +3,8 @@
 {% block content %}
     <h1>{{title}}</h1>
     <ul>
-    	<li>Posts</li>
+    	{% for doc in docs %}
+    		<li><a href="{{doc.url_name}}">{{doc.title}}</a></li>
+    	{% endfor %}
     </ul>
 {% endblock %}
