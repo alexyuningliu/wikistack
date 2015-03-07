@@ -14,7 +14,6 @@ router.get('/', function(req, res, next) {
 router.get('/wiki/:url_name', function(req, res) {
 	var doc = models.Page.findOne({ "url_name" : req.params.url_name}, function (err, doc) {
 		if (err) return console.log(err);
-		console.log("Hello" + doc);
 		res.render('show', { doc: doc });
 	});
 });
