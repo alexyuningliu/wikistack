@@ -31,8 +31,10 @@ router.post('/submit', function(req, res) {
   var url_name = generateUrlName(req.body.title);
 
   var p = new models.Page({ "title": title, "body": body, "url_name": url_name });
-  p.save();
-  res.redirect('/');
+  p.save(function (err) {
+    if (err) return console.log(err);
+    res.redirect('/');
+  });
 });
 
 module.exports = router;

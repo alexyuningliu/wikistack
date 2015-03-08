@@ -4,5 +4,13 @@
 
 {% block content %}
 	<h1>{{doc.title}}</h1>
-	{{doc.body|marked}}
+
+	{% for tag in tags %}
+	<a href="/wiki/tags/{{tag}}">{{tag}}</a>
+	{% endfor %}
+
+	<div class="page-body">{{doc.body|marked}}</div>
+
+	<a href="{{ doc.url_name }}/edit" class="btn btn-primary">Edit</a>
+	<a href="{{ doc.url_name }}/delete" class="btn btn-danger">Delete</a>
 {% endblock %}
